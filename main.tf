@@ -8,6 +8,7 @@ terraform {
 }
 
 provider "snowflake" {
+<<<<<<< HEAD
   alias = "sys_admin"
   role  = "SYSADMIN"
 }
@@ -21,6 +22,18 @@ resource "snowflake_warehouse" "warehouse" {
   provider       = snowflake.sys_admin
   name           = "TF_DEMO"
   warehouse_size = "large"
+=======
+  role     = "SYSADMIN"
+}
+
+resource "snowflake_database" "db" {
+  name = "TF_DEMO"
+}
+
+resource "snowflake_warehouse" "warehouse" {
+  name           = "TF_DEMO"
+  warehouse_size = "xsmall"
+>>>>>>> 86547443c8c92af07bb67b1dd6bc62b1093fb6f9
 
   auto_suspend = 60
 }
